@@ -5,6 +5,10 @@ defineProps({
   type: {
     type: String,
     default: 'text'
+  },
+  placeholder: {
+    type: String,
+    default: ''
   }
 })
 
@@ -18,6 +22,7 @@ const emit = defineEmits(['update:modelValue'])
       :type="type"
       class="input-field"
       :value="modelValue"
+      :placeholder="placeholder"
       @input="emit('update:modelValue', $event.target.value)"
     />
   </div>
@@ -27,7 +32,7 @@ const emit = defineEmits(['update:modelValue'])
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  margin: 10px auto;
 }
 
 .input-label {
@@ -37,7 +42,7 @@ const emit = defineEmits(['update:modelValue'])
 
 .input-field {
   padding: 10px;
-  font-size: 15px;
+  font-size: 18px;
   border: 1px solid #ccc;
   border-radius: 6px;
   background-color: #fff;
