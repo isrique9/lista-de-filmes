@@ -4,3 +4,7 @@
     <p>Desenvolvido por Israel</p>
   </div>
 </template>
+
+<style scoped>
+/* opcional */
+</style>

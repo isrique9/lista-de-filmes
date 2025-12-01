@@ -12,12 +12,20 @@ defineProps({
 
 <style scoped>
 .btn {
+  width: 350px;
   padding: 12px 16px;
-  background-color: #007bff;
+  background-color: #3d0f0f;
   color: white;
   border: none;
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #5a1a1a;
+  transform: translateY(-2px);
 }
 </style>
