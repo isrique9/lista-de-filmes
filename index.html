@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <title>lista-de-filmes</title>
+    <script>
+    // Redireciona para hash mode se estiver acessando sem "#/"
+    (function() {
+      var path = window.location.pathname;
+      if (path.endsWith('/lista-de-filmes/') && !window.location.hash) {
+        window.location.replace('/lista-de-filmes/#/');
+      }
+    })();
+  </script>
   </head>
   <body>
     <div id="app"></div>
