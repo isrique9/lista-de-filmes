@@ -38,11 +38,6 @@ const goTo = (path) => {
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  background: 
-    radial-gradient(circle at top, #361a1a 0%, #181818 70%),
-    url("https://www.transparenttextures.com/patterns/noise.png");
-  background-blend-mode: overlay;
 }
 
 .home-title {

@@ -12,7 +12,8 @@ defineProps({
 
 <style scoped>
 .btn {
-  width: 350px;
+  width: 100%;
+  max-width: 280px; 
   padding: 12px 16px;
   background-color: #3d0f0f;
   color: white;
@@ -22,6 +23,7 @@ defineProps({
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   margin-top: 20px;
+  box-sizing: border-box;
 }
 
 .btn:hover {

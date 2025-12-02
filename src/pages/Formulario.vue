@@ -73,16 +73,70 @@ const salvarFilme = () => {
 
 <style scoped>
 .form-container {
-  padding: 24px;
+  width: 100%;
   max-width: 600px;
-  margin: 0 auto; 
+  padding: 24px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  
 }
 
+/* Título */
 .form-title {
   font-size: 28px;
   font-weight: 700;
   color: #e0e0e0;
+  margin-bottom: 16px;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
-  margin-bottom: 10px;
 }
+
+button.btn {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 18px;
+  }
+
+  .form-title {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .form-container {
+    padding: 16px;
+  }
+
+  .form-title {
+    font-size: 22px;
+  }
+
+  .btn {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 300px) {
+  .form-title {
+    font-size: 20px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .input-field {
+    font-size: 18px;
+    padding: 8px;
+  }
+}
+
 </style>

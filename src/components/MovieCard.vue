@@ -25,23 +25,25 @@ defineProps({
 
 <style scoped>
 .card {
+  height: 100%;
   background: #1f1f1f;
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(255,255,255,0.05);
   color: #fff;
-  position: relative; /* Necessário para posicionar a medalha */
+  position: relative;
 }
 
 .medalha {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 28px;
+  font-size: 24px;
+  opacity: 0.9;
+  text-shadow: 0 0 6px rgba(255,255,255,0.2);
 }
 
 .comentario {
-  margin-top: 10px;
-  font-style: italic;
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 8px;
+  color: #ddd;
 }
 </style>

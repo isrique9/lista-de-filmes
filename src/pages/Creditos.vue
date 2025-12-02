@@ -38,9 +38,8 @@ const filmesFixos = [
       </p>
     </section>
 
-    <!-- Meus 3 Films Favoritos (fixos) -->
     <section class="favoritos-fixos">
-      <h2 class="subtitulo">Meus 3 Filmes Favoritos 🎬</h2>
+      <h2 class="subtitulo">Filmes favoritos do Israel 🎬</h2>
 
       <div class="lista-filmes">
         <MovieCard
@@ -60,9 +59,15 @@ const filmesFixos = [
       <h2 class="subtitulo">Meios de Contato</h2>
 
       <div class="links">
-        <a href="https://www.instagram.com/ei.rik_/" target="_blank">Instagram</a>
-        <a href="https://github.com/isrique9" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/israel-henrique-068a33334/" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/ei.rik_/" target="_blank" class="btn instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://github.com/isrique9" target="_blank" class="btn github">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/israel-henrique-068a33334/" target="_blank" class="btn linkedin">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
       </div>
     </section>
 
@@ -70,12 +75,12 @@ const filmesFixos = [
 </template>
 
 <style scoped>
-/* Container geral */
 .creditos-container {
   padding: 20px;
-  max-width: 900px;
   margin: 0 auto;
   color: #fff;
+  max-width: 768px;
+  width: 100%;
 }
 
 /* PRIMEIRA SESSÃO — SOBRE MIM */
@@ -85,12 +90,12 @@ const filmesFixos = [
 }
 
 .titulo {
-  font-size: 24px;
+  font-size: 21px;
   margin-bottom: 4px;
 }
 
 .destaque {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: bold;
   text-shadow: 0 0 8px rgba(255,255,255,0.2);
 }
@@ -102,16 +107,18 @@ const filmesFixos = [
 
 .tempo span {
   font-weight: bold;
-  color: #ccc;
 }
 
 /* SEGUNDA SESSÃO — FILMES */
 .favoritos-fixos {
   margin-top: 30px;
+  width: 100%;
+  background: #383838;
+  border-radius: 12px;
 }
 
 .subtitulo {
-  font-size: 22px;
+  font-size: 21px;
   margin-bottom: 14px;
   text-align: center;
 }
@@ -119,8 +126,11 @@ const filmesFixos = [
 /* GRID RESPONSIVO */
 .lista-filmes {
   display: grid;
+  padding: 20px;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 16px;
+  justify-content: center;
+  width: 100%;
 }
 
 /* TERCEIRA SESSÃO — CONTATOS */
@@ -136,19 +146,43 @@ const filmesFixos = [
   margin-top: 10px;
 }
 
-.links a {
-  color: #66b2ff;
-  text-decoration: none;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 6px;
   font-size: 18px;
-  transition: 0.2s;
-}
-
-.links a:hover {
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
   color: #fff;
-  text-shadow: 0 0 10px #66b2ff;
 }
 
-/* SUPER RESPONSIVO — telas MUITO pequenas (250px–350px) */
+.btn i {
+  font-size: 20px;
+}
+
+/* Estilos específicos para cada rede */
+.instagram {
+  background: linear-gradient(45deg, #feda75, #d62976, #962fbf, #4f5bd5);
+}
+
+.github {
+  background: #333;
+}
+
+.linkedin {
+  background: #0077b5;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255,255,255,0.4);
+}
+
+/* SUPER RESPONSIVO */
 @media (max-width: 350px) {
   .titulo {
     font-size: 20px;
@@ -160,10 +194,6 @@ const filmesFixos = [
 
   .subtitulo {
     font-size: 18px;
-  }
-
-  .lista-filmes {
-    grid-template-columns: 1fr;
   }
 }
 </style>

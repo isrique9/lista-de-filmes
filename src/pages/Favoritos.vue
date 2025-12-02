@@ -20,8 +20,12 @@ onMounted(() => {
 
 <template>
   <main class="favoritos-page">
-    <h1 class="titulo">Meus Filmes Favoritos</h1>
-
+    <!-- Créditos -->
+    <section class="header-section">
+      <h2 class="subtitulo">Meus Filmes Favoritos 🎬</h2>
+      <p class="destaque">Aqui você tem acesso a sua lista de filmes.</p>
+    </section>
+    
     <div v-if="filmes.length === 0" class="vazio">
       <p>Nenhum filme salvo ainda 😢</p>
     </div>
@@ -42,22 +46,40 @@ onMounted(() => {
 
 <style scoped>
 .favoritos-page {
-  padding: 24px;
+  padding: 20px;
   max-width: 900px;
   margin: 0 auto;
+  color: #fff;
+  background: #383838;
+  border-radius: 12px;
 }
 
-.titulo {
-  font-size: 28px;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 20px;
+.header-section {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.subtitulo {
+  font-size: 25px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+main.favoritos-page {
+  width: 100%;
 }
 
 .lista-filmes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  width: 100%;
+  justify-content: center; 
+  gap: 20px; 
+}
+@media (max-width: 600px) {
+  .lista-filmes {
+    grid-template-columns: 1fr;
+  }
 }
 
 .vazio {
