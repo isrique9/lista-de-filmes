@@ -2,14 +2,14 @@
 </script>
 
 <template>
-  <div id="app">
+  <div id="app-container">
     <RouterView />
   </div>
 </template>
 
 <style>
 
-#app {
+#app-container {
   width: 100%;
   min-height: 100vh;
   background: black;
