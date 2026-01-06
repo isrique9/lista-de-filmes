@@ -8,7 +8,6 @@
       <Input v-model="nota" label="Nota" type="number" placeholder="Ex: 8" />
       <Input v-model="comentario" label="Comentário" placeholder="Escreva algo..." />
 
-
       <Button style="margin-top: 20px;" label="Salvar Filme" type="submit" />
     </form>
   </div>
@@ -19,6 +18,7 @@ import Input from '../components/Input.vue'
 import Button from '../components/Button.vue'
 import { ref } from 'vue'
 import Swal from 'sweetalert2'
+import confetti from 'canvas-confetti'
 
 const titulo = ref('')
 const ano = ref('')
@@ -48,10 +48,20 @@ const salvarFilme = () => {
     return
   }
 
+  // ✅ Validação da nota
+  const notaNum = Number(nota.value)
+  if (isNaN(notaNum) || notaNum < 0 || notaNum > 10) {
+    Toast.fire({
+      icon: "error",
+      title: "A nota deve estar entre 0 e 10."
+    })
+    return
+  }
+
   const filme = {
     titulo: titulo.value,
     ano: ano.value,
-    nota: nota.value,
+    nota: notaNum,
     comentario: comentario.value
   }
 
@@ -68,6 +78,13 @@ const salvarFilme = () => {
     icon: "success",
     title: "Filme salvo com sucesso!"
   })
+
+  // 🎉 Dispara confetes
+  confetti({
+    particleCount: 150,
+    spread: 70,
+    origin: { y: 0.6 }
+  })
 }
 </script>
 
@@ -79,7 +96,6 @@ const salvarFilme = () => {
   margin: 0 auto;
   box-sizing: border-box;
   overflow-x: hidden;
-  
 }
 
 /* Título */

@@ -1,46 +1,58 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import MovieCard from '../components/MovieCard.vue'
+import EditMovieModal from '../components/EditMovieModal.vue'
 
 const filmes = ref([])
+const showModal = ref(false)
+const filmeEditando = ref(null)
 
 onMounted(() => {
   const armazenados = JSON.parse(localStorage.getItem('filmes') || '[]')
-
   const limpos = armazenados
     .filter(f => f.titulo)
-    .sort((a, b) => Number(b.nota) - Number(a.nota)) 
-
+    .sort((a, b) => Number(b.nota) - Number(a.nota))
   filmes.value = limpos
-
   localStorage.setItem('filmes', JSON.stringify(limpos))
 })
 
+function editarFilme(payload) {
+  filmeEditando.value = { ...payload }
+  showModal.value = true
+}
+
+function salvarEdicao(filmeAtualizado) {
+  const i = filmeAtualizado.index
+  filmes.value[i] = {
+    titulo: filmeAtualizado.titulo,
+    ano: filmeAtualizado.ano,
+    nota: filmeAtualizado.nota,
+    comentario: filmeAtualizado.comentario
+  }
+  localStorage.setItem('filmes', JSON.stringify(filmes.value))
+  showModal.value = false
+}
 </script>
 
 <template>
-  <main class="favoritos-page">
-    <!-- Créditos -->
-    <section class="header-section">
-      <h2 class="subtitulo">Meus Filmes Favoritos 🎬</h2>
-      <p class="destaque">Aqui você tem acesso a sua lista de filmes.</p>
-    </section>
-    
-    <div v-if="filmes.length === 0" class="vazio">
-      <p>Nenhum filme salvo ainda 😢</p>
-    </div>
-
-    <div v-else class="lista-filmes">
+  <main>
+    <div v-for="(f, index) in filmes" :key="index">
       <MovieCard
-        v-for="(f, index) in filmes"
-        :key="index"
         :posicao="index"
         :titulo="f.titulo"
         :ano="f.ano"
         :nota="f.nota"
         :comentario="f.comentario"
+        :index="index"
+        @editar="editarFilme"
       />
     </div>
+
+    <EditMovieModal
+      v-model="showModal"
+      :filme="filmeEditando"
+      @salvar="salvarEdicao"
+    />
   </main>
 </template>
 

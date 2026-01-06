@@ -12,7 +12,7 @@
 #app-container {
   width: 100%;
   min-height: 100vh;
-  background: black;
+  background: #181818;
   background-blend-mode: overlay;
   font-family: 'Inter', sans-serif;
   color: #222;

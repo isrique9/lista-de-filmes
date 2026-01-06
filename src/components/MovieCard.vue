@@ -1,17 +1,17 @@
 <script setup>
-defineProps({
+const props = defineProps({
   posicao: Number,
   titulo: String,
   ano: String,
   nota: String,
   comentario: String,
+  index: Number
 })
+const emit = defineEmits(['editar'])
 </script>
 
 <template>
   <div class="card">
-
-    <!-- Medalhas dos 3 primeiros -->
     <div v-if="posicao === 0" class="medalha">🥇</div>
     <div v-else-if="posicao === 1" class="medalha">🥈</div>
     <div v-else-if="posicao === 2" class="medalha">🥉</div>
@@ -20,8 +20,13 @@ defineProps({
     <p><strong>Ano:</strong> {{ ano }}</p>
     <p><strong>Nota:</strong> {{ nota }}</p>
     <p class="comentario">{{ comentario }}</p>
+
+    <button @click="emit('editar', { index: props.index, titulo: props.titulo, ano: props.ano, nota: props.nota, comentario: props.comentario })">
+      Editar
+    </button>
   </div>
 </template>
+
 
 <style scoped>
 .card {
@@ -46,4 +51,14 @@ defineProps({
   margin-top: 8px;
   color: #ddd;
 }
+
+.editar-btn {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  background: #f7f7f7;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.editar-btn:hover { background: #eee; }
 </style>
